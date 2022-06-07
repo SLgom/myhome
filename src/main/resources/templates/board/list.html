@@ -23,7 +23,7 @@
     <div>총 건수 : <span th:text="${boards.getTotalElements}"></span></div>
     <form class="row g-3 d-flex justify-content-end" method="GET" th:action="@{/board/list}">
       <div class="col-auto">
-        <label for="searchText" class="visually-hidden">번호</label>
+        <label for="searchText" class="visually-hidden">검색</label>
         <input type="text" class="form-control" id="searchText" name="searchText" th:value="${param.searchText}">
       </div>
       <div class="col-auto">

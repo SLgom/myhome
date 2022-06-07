@@ -5,8 +5,10 @@ import lombok.Data;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+//게시글 모델
 
-@Entity
+//lombok 를 통해 Data 어노테이션을 하여 외부에서 쓸 수 있도록 함
+@Entity //데이터베이스와의 연동을 위한 모델 클래스임을 설정
 @Data
 public class Board {
     @Id

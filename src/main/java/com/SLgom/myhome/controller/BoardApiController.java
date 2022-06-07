@@ -10,11 +10,11 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api")
+//RESTful API
 class BoardApiController {
-
+    //데이터 조회 json.
     @Autowired
     private BoardRepository repository;
-
     @GetMapping("/boards")
     List<Board> all(@RequestParam(required = false, defaultValue = "") String title,
         @RequestParam(required = false, defaultValue = "") String content) {
@@ -25,7 +25,7 @@ class BoardApiController {
         }
 
     }
-
+    //데이터 추가
     @PostMapping("/boards")
     Board newBoard(@RequestBody Board newBoard) {
         return repository.save(newBoard);
@@ -38,7 +38,7 @@ class BoardApiController {
 
         return repository.findById(id).orElse(null);
     }
-
+    //데이터 삽입
     @PutMapping("/boards/{id}")
     Board replaceBoard(@RequestBody Board newBoard, @PathVariable Long id) {
 
@@ -53,9 +53,7 @@ class BoardApiController {
                     return repository.save(newBoard);
                 });
     }
-
+    //데이터 삭제
     @DeleteMapping("/boards/{id}")
-    void deleteBoard(@PathVariable Long id) {
-        repository.deleteById(id);
-    }
+    void deleteBoard(@PathVariable Long id) { repository.deleteById(id); }
 }

@@ -9,7 +9,9 @@ import java.util.List;
 
 @Entity
 @Data
+//유저 정보 모델 (사용자 테이블 )
 public class User {
+    //id 값 가져오기
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -24,7 +26,7 @@ public class User {
             name = "user_role",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
-
+    //권한과 유저 정보를 매핑
     private List<Role> roles = new ArrayList<>();
 
     //    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
